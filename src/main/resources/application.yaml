@@ -1,0 +1,34 @@
+server:
+  port: 9082
+spring:
+  datasource:
+    dynamic:
+      primary: ds0 # 主数据源
+      strict: false # 是否严格匹配数据源,若为true,未设置数据源的库操作会报错,否则使用主数据源
+      datasource:
+        ds0: # 数据源1
+          url: jdbc:mysql://localhost:3306/from-source?useSSL=false
+          username: root
+          password: 123456
+        ds1: # 数据源2
+          url: jdbc:mysql://localhost:3306/to-target?useSSL=false
+          username: root
+          password: 123456
+  jpa: # jpa 配置
+    generate-ddl: true
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+### xxl-job admin address list, such as "http://address" or "http://address01,http://address02"
+xxl:
+  job:
+    accessToken: default_token
+    admin:
+      addresses: http://127.0.0.1:8090/xxl-job-admin
+    executor:
+      appname: xxl-job-executor-sample
+      address: ''
+      ip: 192.168.1.28
+      port: 9999
+      logpath: /data/applogs/xxl-job/jobhandler
+      logretentiondays: 30
