@@ -11,7 +11,7 @@ CREATE TABLE `from-source`.`t_user`
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
-CREATE TABLE `to-target`.`t_order`
+CREATE TABLE `to-target`.`t_user`
 (
     `id`      int(0) NOT NULL AUTO_INCREMENT,
     `number`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
